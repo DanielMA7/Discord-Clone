@@ -1,0 +1,8 @@
+This is my first attempt at making a discord clone.
+
+Things to change:
+
+- Making the page responsive
+- Adding and input to set the initial username
+- Randomising the unique id (eg "#4123")
+- Adding an input to set the pfp and also setting the object name for the image
