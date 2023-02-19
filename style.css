@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+:root {
+    --grey1: #202225;
+    --grey2: #2F3136;
+    --grey3: #36393F;
+    --grey4: #373A3F;
+    --grey5: #292B2F;
+    --grey6: #888A8F;
+    --blue1: #474F9C;
+    --blue2: #6370F4;
+    --green1: #3BA55D;
+    --icon-grey: #B9BBBE;
+    --chat-background-clr: #40444B;
+    --primary-dark-200: hsl(210, calc(var(--saturation-factor, 1) * 2.9%), 86.7%);
+    --scroll-background: #2E3338;
+    --scroll-thumb: #202225;
+    --hover-option-hover: #3E4249;
+    --hover-option-icon: #DBDCDD;
+}  
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    padding: 0;
+    width: auto;
+    height: 100vh;
+    backdrop-filter: blur(20px) saturate(120%) contrast(200%);
+}
+/* This is the div for the entire server list container */
+.server-list {
+    background-color: var(--grey1);
+    height: cover;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+.server-list 
+/* This is the list item for the individual servers */
+.server-container, .dm-container, .explore-container {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* This is the container for the Direct Message icon holder */
+.dm-image-container {
+    background-color: var(--grey3);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    transition: border-radius .3s;
+}
+.explore-image-container {
+    background-color: var(--grey3);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    transition: border-radius .3s;
+}
+.server-image-container {
+    background-image: url("https://cdn.discordapp.com/icons/819243160893915167/0f76a93998f4c822eaf1f81dd4a25d29.webp?size=96");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    transition: border-radius .3s;
+}
+/*This is the Direct Message icon */
+.dm-icon {
+    width: 30px;
+    height: auto;
+}
+/* This is the message alert that chnges sizes along with the server image  */
+.server-alert {
+    background-color: white;
+    width: 7px;
+    height: 7px;
+    border-radius: 3.5px;
+    position: absolute;
+    top: 35%;
+    left: -5%;
+    transition: top .3s, height .3s;
+    visibility: hidden;
+}
+
+.dm-image-container:hover {
+    border-radius: 15px;
+    background-color: var(--blue2);
+    cursor: pointer;
+}
+.dm-image-container:hover  .server-alert {
+    top: 10%;
+    height: 40px;
+    visibility: visible;
+} 
+.explore-image-container:hover {
+    border-radius: 15px;
+    background-color: var(--green1);
+    cursor: pointer;
+}
+.explore-image-container:hover  .server-alert {
+    top: 10%;
+    height: 40px;
+    visibility: visible;
+} 
+.explore-image-container:hover .explore-icons {
+    fill: white;
+}
+
+.server-image-container:hover {
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.server-image-container:hover  .server-alert {
+    top: 10%;
+    height: 40px;
+    visibility: visible;
+} 
+
+.channel-section {
+    background-color: var(--grey2);
+    height: cover;
+    width: 240px;
+    position: relative;
+}
+
+.chat-section {
+    background-color: var(--grey3);
+    height: cover;
+    width: 1056px;
+    position: relative;
+
+    z-index: 0;
+}
+
+.divider-M-S {
+    background-color: var(--grey4);
+    height: 2px;
+    width: 20px; 
+}
+
+.divider-container {
+    display: flex;
+    justify-content: center;
+}
+
+.explore-icons {
+    fill: var(--green1)
+}
+
+.dm-text {
+    background-color:#18191C;
+    color: white;
+    width: max-content;
+    padding: 10px;
+    position: absolute;
+    left: 78px;
+    border-radius: 4px;
+    font-family: "Open Sans", sans serif;
+    font-size: 13.5px;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dm-text::before {
+    height: 20px;
+    width: 20px;
+    background-color: #18191C;
+    position: absolute;
+    left: 0px;
+    content: "";
+    border-radius: 2px;
+    rotate: 45deg;
+    opacity: 0;
+    z-index: -1;
+}
+
+.dm-container:hover .dm-text, .dm-text::before  {
+    opacity: 1;
+}
+
+.explore-container:hover .dm-text, .dm-text::before  {
+    opacity: 1;
+}
+.server-container:hover .dm-text, .dm-text::before  {
+    opacity: 1;
+}
+
+.user-short {
+    background-color: var(--grey5);
+    width: 226px;
+    height: 50px;
+    position: absolute;
+    top: 92.8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.user-profile-short {
+    width: 55%;
+    height: 80%;
+    border-radius: 5px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    padding-left: 3px;
+
+}
+
+.user-profile-short:hover{
+    background-color: #3F434A;
+    cursor: pointer;
+}
+.user-pfp {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-size:cover;
+    background-position: center;
+    background-image: url("/images/kitten.jpg");
+}
+.nameandidcon{
+    display: block;
+}
+.username{
+    color: white;
+    font-family: "Open Sans", sans serif;
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+.unique-id {
+    color: var(--grey6);
+    font-family: "Open Sans", sans serif;
+    font-size: 12.5px;
+    font-weight: 400;
+
+}
+
+.audio-icons {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.muted-mic-icon, .headphones-icon, .settings-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    fill: var(--icon-grey);
+}
+.headphones-icon:hover{
+    background-color: #3F434A;
+    cursor: pointer;
+}
+
+.muted-mic-icon:hover{
+    background-color: #3F434A;
+    cursor: pointer;
+}
+
+.settings-icon:hover{
+    background-color: #3F434A;
+    cursor: pointer;
+}
+
+.text-container {
+    position: absolute;
+    top: 90%;
+    left: 15px;
+}
+
+.main-text-field {
+    background-color: var(--chat-background-clr);
+    resize: none;
+    height: 33px;
+    width: 1010px;
+    border-style: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 14px;
+    color: var(--primary-dark-200);
+    font-family: "Open Sans", sans-serif;
+}
+
+.message-holder{
+    background-color: var(--grey3);
+    list-style: none;
+    width: 98%;
+    height: 75%;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+.message-holder::-webkit-scrollbar {
+    width: 13px;
+    background: var(--scroll-background);
+    border-radius: 6px;
+}
+
+.message-holder::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 6px;
+}
+
+.message-info {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    position: relative;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+
+.message-info:hover {
+    background: var(--scroll-background);
+}
+
+.message-info:hover .hover-options{
+    visibility: visible;
+}
+
+.message-author-pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-size:cover;
+    background-position: center;
+    background-image: url("/images/kitten.jpg");
+}
+
+.message-author {
+    font-family: 'Whitney', sans-serif;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: #FFF;
+    width: max-content;
+}
+
+.message-content {
+    font-family: 'Whitney', sans-serif;
+    font-size: 15.5px;
+    font-weight: 300;
+    color: #A3A6AA;
+    cursor: default;
+    line-height: 20px;
+}
+
+.message-author:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.message-author-pfp:hover {
+    cursor: pointer;
+}
+
+.hover-options {
+    background-color: var(--grey3);
+    width: 130px;
+    height: 28px;
+    position: absolute;
+    box-shadow: 0px 0px 1px black;
+    left: 85.8%;
+    top: -25%;
+    border-radius: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    visibility: hidden;
+    
+}
+
+.reaction-icon, .reply-icon, .create-thread-icon, .more-options-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 100%;
+    position: relative;
+}
+
+.reaction-icon:hover {
+    background-color: #40444B;
+    cursor: pointer;
+}
+.reply-icon:hover {
+    background-color: #40444B;
+    cursor: pointer;
+}
+.create-thread-icon:hover {
+    background-color: #40444B;
+    cursor: pointer;
+}
+.more-options-icon:hover {
+    background-color: #40444B;
+    cursor: pointer;
+}
+
+.option-tag1, .option-tag2, .option-tag3, .option-tag4 {
+    position: absolute;
+    background-color:#18191C;
+    color: white;
+    width: max-content;
+    height: 20px;
+    padding: 10px;
+    top: -180%;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 13.5px;
+    visibility: hidden;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.option-tag1::after{
+    content: " ";
+    background-color: #18191C;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    border-radius: 2px;
+    right: 41%;
+    top: 55%;
+    z-index: -1;
+    rotate: 45deg;
+}
+.option-tag2::after{
+    content: " ";
+    background-color: #18191C;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    border-radius: 2px;
+    left: 30%;
+    top: 55%;
+    z-index: -1;
+    rotate: 45deg;
+}
+.option-tag3::after{
+    content: " ";
+    background-color: #18191C;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    border-radius: 2px;
+    left: 40%;
+    top: 55%;
+    z-index: -1;
+    rotate: 45deg;
+}
+.option-tag4::after{
+    content: " ";
+    background-color: #18191C;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    border-radius: 2px;
+    left: 30%;
+    top: 55%;
+    z-index: -1;
+    rotate: 45deg;
+}
+.reaction-icon:hover .option-tag1{
+    visibility: visible;
+}
+.reply-icon:hover .option-tag2{
+    visibility: visible;
+}
+.create-thread-icon:hover .option-tag3{
+    visibility: visible;
+}
+.more-options-icon:hover .option-tag4{
+    visibility: visible;
+}
+.chat-title-section{
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 1px black;
+    position: sticky;
+    z-index: 0;
+}
+
+.user-information-div {
+    position: absolute;
+    width: 450px;
+    height: 500px;
+    background-color:var(--grey1);
+    top: 15%;
+    left: 35%;
+    z-index: 2;
+}
