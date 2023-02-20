@@ -7,13 +7,33 @@ inputBox.addEventListener("keydown", function (e) {
 });
 
 let userInformation = {
-    firstUsername: "Hello"
+    firstUsername: " "
 }
 function applyUsername(){
     document.getElementById("applied-username").innerText = userInformation.firstUsername
 }
-applyUsername()
 
+
+const usernameSubmit = document.getElementById("usernameField")
+usernameSubmit.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+        e.preventDefault()
+        applyUsername1();
+    }
+});
+
+function applyUsername1() {
+    const retrievedName = usernameSubmit.value
+    userInformation["firstUsername"] = retrievedName
+
+
+    document.getElementById("usernameDiv").style.visibility = "hidden"
+    
+    document.getElementById("container").style.filter= "blur(0px)"
+
+
+    applyUsername()
+}
 
 function submitMessage(){
     const messageText = inputBox.value

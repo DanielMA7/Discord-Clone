@@ -6,3 +6,9 @@ Things to change:
 - Adding and input to set the initial username
 - Randomising the unique id (eg "#4123")
 - Adding an input to set the pfp and also setting the object name for the image
+- Adding checks for the username; makes sure the field isnt empty or just spaces, make sure the username isnt too long
+- Add a way to change the username without having to reload
+
+Recent changed:
+
+- Added setting username
