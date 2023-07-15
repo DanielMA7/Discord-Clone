@@ -362,7 +362,7 @@
     border-radius: 20px;
     background-size:cover;
     background-position: center;
-    background-image: url("/images/kitten.jpg");
+    background-image: url("images/kitten.jpg");
 }
 
 .message-author {
