@@ -246,7 +246,7 @@
     border-radius: 16px;
     background-size:cover;
     background-position: center;
-    background-image: url("images/kitten.jpg");
+    background-image: url("https://danielma7.github.io/Discord-Clone/images/kitten.jpg");
 }
 .nameandidcon{
     display: block;
