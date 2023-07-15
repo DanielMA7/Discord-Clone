@@ -48,7 +48,6 @@
     margin: 0;
 }
 
-.server-list 
 /* This is the list item for the individual servers */
 .server-container, .dm-container, .explore-container {
     list-style: none;
@@ -247,7 +246,7 @@
     border-radius: 16px;
     background-size:cover;
     background-position: center;
-    background-image: url("/images/kitten.jpg");
+    background-image: url("images/kitten.jpg");
 }
 .nameandidcon{
     display: block;
@@ -528,6 +527,7 @@
     z-index: 2;
     display: grid;
     visibility: visible;
+    border-radius: 40px;
 }
 
 .user-information-div div {
@@ -536,7 +536,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 
 .user-information-div div label {
