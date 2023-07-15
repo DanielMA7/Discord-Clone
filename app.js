@@ -7,7 +7,7 @@ inputBox.addEventListener("keydown", function (e) {
 });
 
 let userInformation = {
-    firstUsername: " "
+    firstUsername: ""
 }
 function applyUsername(){
     document.getElementById("applied-username").innerText = userInformation.firstUsername
